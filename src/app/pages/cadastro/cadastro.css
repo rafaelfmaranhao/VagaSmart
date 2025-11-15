@@ -22,16 +22,3 @@ h3 {
     padding: 30px;
 }
 
-.input-box {
-    position: relative;
-    width: 350px;
-}
-
-.input-text {
-    outline-color: #16B4DD;
-    width: 100%;
-    border: 1px solid #282E38;
-    background-color: #0F1419;
-    padding: 10px 10px;
-    margin-bottom: 25px;
-}

@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="logo-container">
+    </div>
+    <h2>Criar sua conta</h2>
+    <p class="step-text">Configure sua conta em {{step}}/3 etapas</p>
+    <div class="login-box">
+
+        <div class="progress">
+            <div class="barra" [class.filled]="step >= 1"></div>
+            <div class="barra" [class.filled]="step >= 2"></div>
+            <div class="barra" [class.filled]="step >= 3"></div>
+        </div>
+        <form>
+            <div class="input-box">
+                <div>
+                    <h3>Nome completo</h3>
+                    <input type="text" placeholder="Seu nome"/>
+                </div>
+            </div>
+            
+        </form>
+    
+    </div>
+</div>
