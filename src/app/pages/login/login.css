@@ -1,5 +1,21 @@
-h3 {
-    color: #c5c5c5;
+label {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+}
+
+a {
+    text-decoration: none;
+    color: #16B4DD;
+    font-weight: 500;
+}
+
+a:hover {
+    filter: brightness(1.2);
+}
+
+p {
+    color: #aaa;
+    font-size: 14px;
 }
 
 .container {
@@ -12,6 +28,11 @@ h3 {
     background-color: #0F1419;
 }
 
+.title-box {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
 .login-box {
     display: flex;
     justify-content: center;
@@ -20,18 +41,36 @@ h3 {
     border: 1px solid #282E38;
     border-radius: 10px;
     padding: 30px;
+    background-color: #14171d;
 }
 
 .input-box {
     position: relative;
-    width: 350px;
+    width: 380px;
 }
 
-.input-text {
-    outline-color: #16B4DD;
+.input-box input {
+    display: block;
+    outline: none;
     width: 100%;
     border: 1px solid #282E38;
+    border-radius: 8px;
     background-color: #0F1419;
-    padding: 10px 10px;
-    margin-bottom: 25px;
+    padding: 13px 36px;
+    font-size: 16px;
+    margin-top: 6px;
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease;
+}
+
+.input-box input:focus {
+    border-color: #16B4DD;
+    outline: 2px solid #16B4DD;
+    outline-offset: 2px;
+}
+
+.input-box lucide-icon {
+    position: absolute;
+    left: 8px;
+    top: 41px;
 }

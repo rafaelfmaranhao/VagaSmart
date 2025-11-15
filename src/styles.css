@@ -4,6 +4,7 @@
   padding: 0;
   box-sizing: border-box;
   color: #e4e4e4;
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .container {
