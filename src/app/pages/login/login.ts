@@ -10,5 +10,5 @@ import { BtnInput } from "../../components/btn-input/btn-input";
   styleUrl: './login.css'
 })
 export class Login {
-
+  
 }

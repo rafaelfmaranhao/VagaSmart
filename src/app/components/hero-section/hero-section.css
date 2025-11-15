@@ -1,41 +1,8 @@
 .hero-section{
-    background-color: #141E30;
-    padding: 6rem;
-    color: #ffff;
-}
-
-.hero-container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 var;
+    background-color: #0F1419 (220° 25% 8%);
+    color: ;
+    text-align: center;
+    padding: 15vh 20px;
+    min-height: 100vh;
     display: flex;
-    align-items: center;
-    gap: 2.5rem;
-}
-.hero-container{
-    flex: 3;
-}
-
-.hero-visual{
-    flex: 3;
-}
-
-.hero-visual{
-    flex 2;
-    text-align: right;
-}
-
-.hero-title{
-    font-size: 3.5rem;
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-}
-
-.hero-subtitle{
-    margin-bottom: 2,5rem;
-}
-
-.cta-group{
-    display: flex;
-    gap: ;
 }

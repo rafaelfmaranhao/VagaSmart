@@ -14,7 +14,7 @@ export class AuthService {
     if (emailExist) return { success: true, message: 'Email já cadastrado!'};
 
     emails.push(usuario);
-    localStorage.setItem('usuarios', JSON.stringify(emails));
+    localStorage.setItem('emails', JSON.stringify(emails));
     return { success: true, message: 'Cadastro realizado com sucesso'}
   }
 

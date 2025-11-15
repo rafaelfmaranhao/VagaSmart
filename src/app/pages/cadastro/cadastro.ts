@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgModel } from '@angular/forms';
+import {FormsModule} from '@angular/forms'
 
 interface FormData {
   name: string;
@@ -10,12 +11,14 @@ interface FormData {
 
 @Component({
   selector: 'app-cadastro',
-  imports: [],
+  standalone: true,
+  imports: [FormsModule],
   templateUrl: './cadastro.html',
   styleUrl: './cadastro.css',
 })
 export class Cadastro {
   step = 1;
+  
 
   
 }
