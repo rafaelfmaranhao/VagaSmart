@@ -1,24 +1,42 @@
 .header {
     background-color: #242B35 ;
-    padding: 30px;
+    padding: 20px;
+    padding-left: 350px;
+    padding-right: 350px;
 }
+.logo {
+    margin-left: 20px;
+    
 .txt-header{
     margin-top: 4px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.logo {
-    margin-left: 20px;
-    
-}
-.saldo {
-    background-color: #16B4DD;
-}
 .icones {
     display: flex;
-    gap: 10px;
+    gap: 30px;
     margin-right: 20px;
+}
+
+ /* separando as divs */
+
+}
+.saldo {
+    background-color:#0f1419;
+    padding-left: 350px;
+    padding-right:350px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.normal{
+    border-radius: 20px;
+    padding: 20px;
+    background-color: #0ac7ed;
+    padding-left: 20px;
+    padding-right: 10px;
+    border-color: transparent;
 }
 .disponivel {
     color: black;
@@ -28,5 +46,39 @@
     align-items: center;
     justify-content: space-between;
     gap: 8px;
+    padding-right: 30px;
+}
+h2{
+    color: black;
+    font-size: 38px;
+}
+.icone-dolar {
+  padding: 10px;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  background-color: #70c5f0;
+}
+:host ::ng-deep .icone-dolar svg {
+    stroke-width: 1.5   ;
+}
+.recarga {
+    background-color: #70c5f0;
+    width: 97%;
+    border-color: transparent;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+    color: white;
+    font-weight: bold;
+    gap: 10px;
+    padding: 12px 0;
+    margin-top: 10px;
 }
 
+    /* separando as divs */
+
+.estacionamento {
+    background-color: #0f1419;
+}

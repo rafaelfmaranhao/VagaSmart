@@ -12,4 +12,5 @@ export class BtnInput {
   @Input() tipo = '';
   @Input() valor = '';
   @Input() link = '';
+
 }
