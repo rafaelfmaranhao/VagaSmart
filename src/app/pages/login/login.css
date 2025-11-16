@@ -6,16 +6,24 @@ label {
 a {
     text-decoration: none;
     color: #16B4DD;
-    font-weight: 500;
+    font-weight: 500;   
 }
 
 a:hover {
     filter: brightness(1.2);
 }
 
+h1 {
+    font-size: 22px;
+}
+
+h2 {
+    font-size: 16px;
+}
+
 p {
     color: #aaa;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .container {
@@ -28,9 +36,25 @@ p {
     background-color: #0F1419;
 }
 
-.title-box {
+.logo-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+.logo-box lucide-icon {
+    background-color: #0F1419;
+    box-shadow: 0 0 20px rgba(0, 191, 255, 0.4);
+    border-radius: 20px;
+    padding: 14px;
+    margin-bottom: 14px;
+}
+
+.desc-box {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 18px;
 }
 
 .login-box {

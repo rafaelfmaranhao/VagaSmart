@@ -1,32 +1,57 @@
 <div class="header">
     <div class="logo">
         <h3>Smart Parking</h3>
-            <div class="txt-header">
-                <p>Bem-Vindo de Volta!!</p>
-                <div class="icones">
-                    <lucide-icon name="Bell" size="18px"></lucide-icon>
-                    <lucide-icon name="Menu" size="18px"></lucide-icon>
-                </div>
+        <div class="txt-header">
+            <p>Bem-Vindo de Volta!!</p>
+            <div class="icones">
+                <lucide-icon name="Bell" size="18px"></lucide-icon>
+                <lucide-icon name="Menu" size="18px"></lucide-icon>
             </div>
         </div>
     </div>
+</div>
 
 
-    <div class="saldo">
-        <fieldset class="normal">
-            <p class="disponivel">Saldo disponivel</p>
-            <div class="valor">
-                <h2>R$ 150.50</h2>
-                <lucide-icon name="dollar-sign" class="icone-dolar" color="black" size="38px"></lucide-icon>
-            </div>
-            <div class="btn-recarga">
-                 <button class="recarga">  <lucide-icon name="wallet"></lucide-icon>Recarregar Saldo</button>
-            </div>
+<div class="saldo">
+    <fieldset class="normal">
+        <p class="disponivel">Saldo disponivel:</p>
+        <div class="valor">
+            <h2>R$ 150.50</h2>
+            <lucide-icon name="dollar-sign" class="icone-dolar" color="black" size="38px"></lucide-icon>
+        </div>
+        <div class="btn-recarga">
+            <button class="recarga"> <lucide-icon name="wallet"></lucide-icon>Recarregar Saldo</button>
+        </div>
+    </fieldset>
+</div>
+
+
+<div class="estacionamento">
+    <fieldset class="pontilhamento">
+        <lucide-icon name="Car" class="carro" size="38px"></lucide-icon>
+        <p class="branco">Nenhum estacionamento ativo</p>
+        <p class="cinza">Encontre uma vaga disponivel no mapa</p>
+        <div class="mapa">
+            <button class="botao-mapa"> <lucide-icon name="map-pin" class="" size="18px"></lucide-icon> Buscar vaga </button>
+        </div>
+    </fieldset>
+</div>
+
+<div class="acesso-rapido">
+    <div class="encontrar">
+        <fieldset class="tres">
+        <button class="maps"><lucide-icon name="map-pin" class="" size="18px"></lucide-icon> Econtrar vaga</button>
+    </fieldset>
+    </div>
+    <div class="historico">
+        <fieldset class="tres" (click)="openModal()">
+            <button class="maps"><lucide-icon name="car" class="" size="18px"></lucide-icon>Adicionar carro</button>                                                              
+        </fieldset>                     
+    </div>
+    <div class="pagamento">
+        <fieldset class="tres">
+            <button class="maps"><lucide-icon name="CreditCard" class="" size="18px"></lucide-icon>Recarregar</button>
         </fieldset>
     </div>
+</div>
 
-    <div class="estacionamento">
-        <fieldset class="pontilhamento">
-
-        </fieldset>
-    </div>

@@ -1,23 +1,142 @@
 <div class="container">
-    <div class="logo-container">
-    </div>
-    <h2>Criar sua conta</h2>
-    <p class="step-text">Configure sua conta em {{step}}/3 etapas</p>
     <div class="login-box">
 
-        <div class="progress">
-            <div class="barra" [class.filled]="step >= 1"></div>
-            <div class="barra" [class.filled]="step >= 2"></div>
-            <div class="barra" [class.filled]="step >= 3"></div>
+        <div class="logo-box">
+            <lucide-icon name="car" color="#16B4DD" size="32px"></lucide-icon>
+            <h1>VagaSmart</h1>
         </div>
-        <form>
-            <div class="input-box">
-                @if (step === 1){
-                    
+
+        <div class="desc-box">
+            <h2>Criar sua conta</h2>
+            <p class="step-text">Configure sua conta em {{step()}}/3 etapas</p>
+        </div>
+
+        <div class="progress">
+            <div class="barra" [class.filled]="step() >= 1"></div>
+            <div class="barra" [class.filled]="step() >= 2"></div>
+            <div class="barra" [class.filled]="step() >= 3"></div>
+        </div>
+        @if (step() === 1) {
+        <div>
+            <form class="input-box" (submit)="$event.preventDefault()">
+
+                <div class="input-box">
+                    <label for="name">Nome completo</label>
+                    <lucide-icon name="user" color="#aaa" size="21px"></lucide-icon>
+
+                    <input type="text"
+                    name="nome"
+                    placeholder="Seu nome"
+                    [ngModel]="name()"
+                    (ngModelChange)="name.set($event)"
+                    required>
+                </div>
+
+                <div class="input-box">
+                    <label for="email">Email</label>
+                    <lucide-icon name="mail" color="#aaa" size="21px"></lucide-icon>
+
+                    <input type="email"
+                    name="email"
+                    placeholder="seu@email.com"
+                    [ngModel]="email()"
+                    (ngModelChange)="email.set($event)"
+                    required>
+                </div>
+
+                @if (erroStep1()) {
+                    <p class="error">{{erroStep1()}}</p>
                 }
+
+                <div class="button-box">
+                    <app-btn tipo="submit" valor="Continuar" link="" (click)="nextStep1()"></app-btn>
+                </div>
+
+            </form>
+
+            <p>Já tem uma conta? <a routerLink="/login">Fazer login</a></p>
+
+        </div>
+        }
+
+        @if (step() === 2) {
+        <div>
+
+            <form class="input-box" (submit)="$event.preventDefault()">
+
+                <div class="input-box">
+                    <label>Senha</label>
+                    <lucide-icon name="lock" color="#aaa" size="21px"></lucide-icon>
+
+                    <input type="password"
+                    name="senha"
+                    placeholder="••••••••"
+                    [ngModel]="senha()"
+                    (ngModelChange)="senha.set($event)"
+                    required>
+                </div>
+
+                <div class="input-box">
+                    <label>Confirmar senha</label>
+                    <lucide-icon name="lock" color="#aaa" size="21px"></lucide-icon>
+
+                    <input type="password"
+                    name="confirmasenha"
+                    placeholder="••••••••"
+                    [ngModel]="confirmasenha()"
+                    (ngModelChange)="confirmasenha.set($event)"
+                    required>
+                </div>
+
+                @if (erroStep2()) {
+                    <p class="error">{{erroStep2()}}</p>
+                }
+
+                <div id="cadastro-button-box">
+                    <app-btn modo="button" tipo="button" valor="Voltar" (click)="back()"></app-btn>
+                    <app-btn modo="button" tipo="button" valor="Continuar" (click)="nextStep2()"></app-btn>
+                </div>
+
+            </form>
+
+            <p>Já tem uma conta? <a routerLink="/login">Fazer login</a></p>
+
+        </div>
+        }
+
+
+        @if (step() === 3) {
+        <div>
+
+            <div class="confirm-box">
+
+                <div class="confirm-icon">
+                    <lucide-icon name="check-circle" color="#22dd66" size="48px"></lucide-icon>
+                </div>
+
+                <h3>Quase lá!</h3>
+                <p class="subtitle">Revise seus dados e complete o cadastro</p>
+
+                <div class="review-box">
+                    <p><strong>Nome:</strong> {{name()}}</p>
+                    <p><strong>Email:</strong> {{email()}}</p>
+                </div>
+
+                @if (erroStep3()) {
+                    <p class="error">{{erroStep3()}}</p>
+                }
+
+                <div id="cadastro-button-box">
+                    <app-btn modo="button" tipo="button" valor="Voltar" (click)="back()"></app-btn>
+                    <app-btn modo="button" tipo="button" valor="Criar conta" routerLink="/login" (click)="finish()"></app-btn>
+                </div>
+
             </div>
-            
-        </form>
-    
+
+            <p>Já tem uma conta? <a routerLink="/login">Fazer login</a></p>
+
+        </div>
+        }
+
     </div>
 </div>

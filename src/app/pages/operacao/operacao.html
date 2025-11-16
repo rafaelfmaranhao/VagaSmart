@@ -1,0 +1,38 @@
+<header>
+    <div class="container header-container">
+        <div class="title-box">
+            <lucide-icon name="car" color="#16B4DD"></lucide-icon>
+            <div class="title">
+                <h1>Painel do Operador</h1>
+                <p>Smart Parking System</p>
+            </div>
+        </div>
+        <div class="status">
+            <p>Online</p>
+        </div>
+    </div>
+</header>
+<main>
+    <div class="container">
+        <div class="card-main">
+            <div class="card-top">
+                <div class="card-title">
+                    <lucide-icon name="clock" color="#16B4DD" size="20px"></lucide-icon>
+                    <h2>Solicitações Pendentes (3)</h2>
+                </div>
+                <p>Veículos aguardando liberação de entreada</p>
+            </div>
+            <div class="cards">
+                @for (item of cards; track $index) {
+                    <app-card 
+                        [titulo]="item.nome" 
+                        [status]="item.status" 
+                        [placa]="item.placa" 
+                        [condutor]="item.condutor" 
+                        [horario]="item.horario" 
+                    ></app-card>
+                }
+            </div>
+        </div>
+    </div>
+</main>

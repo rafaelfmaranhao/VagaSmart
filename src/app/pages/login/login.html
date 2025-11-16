@@ -1,14 +1,15 @@
 <div class="container">
-    <div class="logo-box">
-
-    </div>
-    <div class="title-box">
-        <h2>Bem-vindo de volta</h2>
-        <p>Acesse sua conta VagaSmart</p>
-    </div>
     <div class="login-box">
+        <div class="logo-box">
+            <lucide-icon name="car" color="#16B4DD" size="32px"></lucide-icon>
+            <h1>VagaSmart</h1>
+        </div>
+        <div class="desc-box">
+            <h2>Bem-vindo de volta</h2>
+            <p>Acesse sua conta VagaSmart</p>
+        </div>
         <form>
-            <div class="input-box">  
+            <div class="input-box">
                 <label for="email">Email</label>
                 <lucide-icon name="mail" color="#aaa" size="21px"></lucide-icon>
                 <input type="email" name="nomeUsuario" placeholder="seu@email.com" required>
@@ -19,7 +20,7 @@
                 <input type="password" name="senha" placeholder="••••••••" required>
             </div>
             <div class="button-box">
-                <app-btn tipo="submit" valor="Entrar" routerLink="/"></app-btn>
+                <app-btn tipo="submit" valor="Entrar" routerLink="/dashboard"></app-btn>
             </div>
         </form>
         <p>Não tem uma conta? <a routerLink="/cadastro">Criar conta</a></p>

@@ -40,6 +40,7 @@
 }
 .disponivel {
     color: black;
+    padding-bottom: 6px;
 }
 .valor{
     display:flex;
@@ -62,23 +63,115 @@ h2{
     stroke-width: 1.5   ;
 }
 .recarga {
-    background-color: #70c5f0;
+    background-color:#4da0c8;
     width: 97%;
     border-color: transparent;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
     color: white;
     font-weight: bold;
     gap: 10px;
     padding: 12px 0;
     margin-top: 10px;
+    cursor: pointer;
+    transition: all 0.5s ease;
 }
+.recarga:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #3f8fb6, #2f7ea4);
+    box-shadow: 0 0 18px rgba(112, 197, 240, 0.9);
+}
+
 
     /* separando as divs */
 
 .estacionamento {
     background-color: #0f1419;
+     padding-left: 350px;
+      padding-right: 350px;
+}
+.pontilhamento {
+      border: 2px solid #0f1419;
+      background-color: #181d25;
+      padding-top: 40px;
+      padding: 60px;
+}
+.carro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+.branco {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+    margin-top: 6px;
+}
+.cinza {
+    color: #8a94a6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.mapa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+.botao-mapa {
+    border-radius: 10px;
+    background-color: #0ac7ed;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 0 40px rgba(0, 191, 255, 0.4);
+    border: none;
+    cursor: pointer;
+}
+
+/* dividindo as divs */
+
+.acesso-rapido {
+    background-color: #0f1419;
+    padding: 20px 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.tres {
+    border: 2px solid #0f1419;
+    background-color: #181d25;
+    padding: 40px;
+    padding-left: 150px;
+    padding-right: 150px;
+    transition: all 0.5s;    
+}
+.tres:hover {
+    transform: scale(1.05);
+    background-color: #2f7ea4;
+}
+.maps {
+    background-color: transparent;
+    border-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+   
 }

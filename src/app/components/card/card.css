@@ -1,0 +1,92 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    padding: 14px;
+    background: #0F1419;
+    border: 1px solid #282E38;
+    border-radius: 8px;
+}
+
+.title {
+    margin-bottom: 6px;
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.infos {
+    margin-bottom: 12px;
+}
+
+.info h3 {
+    color: #7e7e7e;
+    font-size: 14px;
+}
+
+.info p {
+    font-size: 15px;
+}
+
+.placa {
+    font-weight: 700;
+}
+
+.button-box {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.liberar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    padding: 6px 36px;
+    border: 1px solid #282E38;
+    border-radius: 8px;
+}
+
+.recusar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: #d30b0b;
+    color: white;
+    padding: 6px 36px;
+    border: 1px solid #282E38;
+    border-radius: 8px;
+}
+
+.ativo {
+    display: flex;
+    align-items: center;
+    color: #4CAF50;
+    font-size: 13px;
+    padding: 6px 10px;
+    text-align: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    border: 1px solid #4CAF50;
+    border-radius: 10px;
+}
+
+.pendente {
+    display: flex;
+    align-items: center;
+    color: rgb(245, 241, 5);
+    font-size: 13px;
+    padding: 6px 10px;
+    text-align: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    border: 1px solid rgb(245, 241, 5);
+    border-radius: 10px;  
+}
+

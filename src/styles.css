@@ -11,3 +11,11 @@
   width: min(100% - 32px, 1500px);
   margin-inline: auto;
 }
+
+body {
+  background-color: #0F1419;
+}
+.cdk-overlay-backdrop {
+  background: rgba(0, 0, 0, 0.8) !important;
+  backdrop-filter: blur(10px);
+}
