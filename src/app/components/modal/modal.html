@@ -1,13 +1,22 @@
 <div class="modals">
     <div inputs></div>
-    <h1>Adicione seu carro</h1>
+    <h1>{{ titulo }}</h1>
     <div class="infos">
-        <p>Placa do veiculo</p>
-        <input type="text" class="input" placeholder="placa">
-        <div class="modelos">
-            <p>Modelo do veiculo</p>
-            <input type="text" class="input" placeholder="modelo">
-        </div>
-        <button (click)="close()" class="fechar">close</button>
+        <form>
+        @if (condicao == 'adicionar') {
+            <p>{{ input1 }}</p>
+            <input type="text" class="input" placeholder="placa">
+            <div class="modelos">
+                <p>{{ input2 }}</p>
+                <input type="text" class="input" placeholder="modelo">
+            </div>
+        } @else if (condicao == 'encontrar') {
+            <select name="veiculos">
+                <option value="veiculo">Honda Civic</option>
+                <option value="veiculo">Toyota Corolla</option>
+            </select>
+        }
+        </form>
+        <button (click)="close()" class="fechar">Fechar</button>
     </div>
 </div>
