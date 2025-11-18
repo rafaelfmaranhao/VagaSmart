@@ -4,8 +4,8 @@
         <div class="txt-header">
             <p>Bem-Vindo de Volta!!</p>
             <div class="icones">
-                <lucide-icon name="Bell" size="18px"></lucide-icon>
-                <lucide-icon name="Menu" size="18px"></lucide-icon>
+                <lucide-icon name="Bell" size="18px" class="efeito"></lucide-icon>
+                <lucide-icon name="Menu" size="18px" class="efeito"></lucide-icon>
             </div>
         </div>
     </div>
@@ -32,26 +32,21 @@
         <p class="branco">Nenhum estacionamento ativo</p>
         <p class="cinza">Encontre uma vaga disponivel no mapa</p>
         <div class="mapa">
-            <button class="botao-mapa"> <lucide-icon name="map-pin" class="" size="18px"></lucide-icon> Buscar vaga </button>
+            <button class="botao-mapa"> <lucide-icon name="map-pin" class="" size="18px"></lucide-icon> Buscar vaga
+            </button>
         </div>
     </fieldset>
 </div>
 
 <div class="acesso-rapido">
-    <div class="encontrar">
-        <fieldset class="tres" (click)="encontrarVaga()">
+    <fieldset class="tres" (click)="encontrarVaga()">
         <button class="maps"><lucide-icon name="map-pin" class="" size="18px"></lucide-icon>Encontrar vaga</button>
     </fieldset>
-    </div>
-    <div class="historico">
-        <fieldset class="tres" (click)="openModal()">
-            <button class="maps"><lucide-icon name="car" class="" size="18px"></lucide-icon>Adicionar carro</button>                                                              
-        </fieldset>                     
-    </div>
-    <div class="pagamento">
-        <fieldset class="tres">
-            <button class="maps"><lucide-icon name="CreditCard" class="" size="18px"></lucide-icon>Recarregar</button>
-        </fieldset>
-    </div>
-</div>
 
+    <fieldset class="tres" (click)="openModal()">
+        <button class="maps"><lucide-icon name="car" class="" size="18px"></lucide-icon>Adicionar carro</button>
+    </fieldset>
+    <fieldset class="tres">
+        <button class="maps"><lucide-icon name="CreditCard" class="" size="18px"></lucide-icon>Recarregar</button>
+    </fieldset>
+</div>

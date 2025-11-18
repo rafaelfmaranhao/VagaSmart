@@ -18,6 +18,17 @@
     gap: 30px;
     margin-right: 20px;
 }
+.efeito {
+    transition: all 0.5s;
+    padding: 6px;
+}
+.efeito:hover {
+    transform:scale(1.05) ;
+    box-shadow: 0 0 18px rgba(112, 197, 240, 0.9);
+    background-color: #0ac7ed;
+    border-radius: 20px;
+
+}
 
  /* separando as divs */
 
@@ -147,8 +158,9 @@ h2{
 
 .acesso-rapido {
     background-color: #0f1419;
-    padding: 20px 350px;
+    min-height: 160px;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     gap: 20px;
@@ -157,13 +169,25 @@ h2{
     border: 2px solid #0f1419;
     background-color: #181d25;
     padding: 40px;
-    padding-left: 150px;
-    padding-right: 150px;
-    transition: all 0.5s;    
+    transition: all 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
 }
 .tres:hover {
     transform: scale(1.05);
     background-color: #2f7ea4;
+}
+@media (min-width: 800px) {
+    .tres{
+        min-width: 200px;
+    }    
+}
+@media (min-width: 1200px){
+    .tres{
+        min-width: 390px;
+    }
 }
 .maps {
     background-color: transparent;
