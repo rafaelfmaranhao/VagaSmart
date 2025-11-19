@@ -5,19 +5,33 @@
     align-items: center;
     justify-content: center;
 }
-.logo {
+.title-box {
     margin-left: 20px;
     width: 1100px;
     display: flex;
     flex-direction: column;
 }
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo lucide-icon {
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 107, 143, 0.4);
+    border-radius: 12px;
+    padding: 8px;
+}
     
 .txt-header{
-    margin-top: 4px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 .icones {
     display: flex;
     gap: 30px;
