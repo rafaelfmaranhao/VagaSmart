@@ -1,11 +1,10 @@
 import { ModalEncontrarVaga } from './../../components/modal-encontrar-vaga/modal-encontrar-vaga';
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { LucideAngularModule } from 'lucide-angular';
-import { Dialog} from '@angular/cdk/dialog';
+import { Dialog } from '@angular/cdk/dialog';
 import { Footer } from "../../components/footer/footer";
 import { SaldoRecarga } from '../../components/saldo-recarga/saldo-recarga';
 import { ModalAdicionarVeiculo } from '../../components/modal-adicionar-veiculo/modal-adicionar-veiculo';
-
 
 
 @Component({
@@ -16,8 +15,11 @@ import { ModalAdicionarVeiculo } from '../../components/modal-adicionar-veiculo/
   styleUrls: ['./dashboard.css'],
 })
 export class Dashboard {
+  valor = 0;
 
   dialog = inject(Dialog);
+
+  constructor(private saldo: SaldoRecarga) {}
 
   openModalVaga() {
     this.dialog.open(ModalEncontrarVaga, {
@@ -41,8 +43,6 @@ export class Dashboard {
         condicao: 'adicionar'
       }
     });
-
-
   }
 
 }

@@ -18,7 +18,10 @@
                 <option value="tipoPagamento">Débito</option>
             </select>
         }
+            <div class="button-box">
+                <app-btn tipo="submit" valor="Recarregar" (click)="confirmar()"></app-btn>
+            </div>
         </form>
-        <button (click)="close()" class="fechar">Recarregar</button>
+        <button (click)="close()" class="fechar">Fechar</button>
     </div>
 </div>

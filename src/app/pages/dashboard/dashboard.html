@@ -19,11 +19,11 @@
     <fieldset class="normal">
         <p class="disponivel">Saldo disponivel:</p>
         <div class="valor">
-            <h2>R$ 150.50</h2>
+            <h2>R$ {{ valor }}</h2>
             <lucide-icon name="dollar-sign" class="icone-dolar" color="black" size="38px"></lucide-icon>
         </div>
         <div class="btn-recarga">
-            <button class="recarga" (click)="saldoRecarga()"> <lucide-icon name="wallet"></lucide-icon>Recarregar Saldo</button>
+            <button type="submit" class="recarga" (click)="saldoRecarga()"> <lucide-icon name="wallet"></lucide-icon>Recarregar Saldo</button>
         </div>
     </fieldset>
 </div>

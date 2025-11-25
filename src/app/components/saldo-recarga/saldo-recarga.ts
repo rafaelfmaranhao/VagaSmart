@@ -1,14 +1,14 @@
-
 import { Component, Inject, Input } from '@angular/core';
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { FormsModule } from '@angular/forms';
+import { BtnInput } from "../btn-input/btn-input";
 
 @Component({
   selector: 'app-saldo-recarga',
   standalone: true,
   templateUrl: './saldo-recarga.html',
   styleUrl: './saldo-recarga.css',
-  imports: [FormsModule],
+  imports: [FormsModule, BtnInput],
 })
 export class SaldoRecarga {
   @Input() titulo = '';
@@ -16,7 +16,7 @@ export class SaldoRecarga {
   @Input() input2 = '';
   @Input() condicao = '';
 
-  valor: number | null = null;
+  valor: number | null = 0;
   tipoPagamento: string = 'Crédito';
 
   constructor(
