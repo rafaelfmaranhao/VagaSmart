@@ -154,6 +154,28 @@ p {
     color: #aaa;
 }
 
+.select-box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 7px;
+}
+
+.select-box select, .select-box option {
+    color: #282E38;
+    display: block;
+    outline: none;
+    width: 100%;
+    border: 1px solid #282E38;
+    border-radius: 8px;
+    background-color: #0F1419;
+    padding: 13px 6px;
+    font-size: 14px;
+    color: #fff; 
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; 
+    box-sizing: border-box;
+}
+
 .button-box {
     width: 100%;
     max-width: 380px;

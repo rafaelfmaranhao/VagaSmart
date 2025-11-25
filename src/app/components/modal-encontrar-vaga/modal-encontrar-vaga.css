@@ -1,0 +1,75 @@
+.modals {
+    background-color: #0f1419;
+    padding: 90px;
+    padding-bottom: 30px;
+    border-radius: 20px;
+}
+h1 {
+    color: #00ffff;
+    text-shadow: 0 0 20px rgba(0, 191, 255, 0.4);
+    padding-bottom: 20px;
+    margin-top: -60px;
+}
+
+h2 {
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.infos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.select-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-width: 240px;
+    gap: 6px;
+    margin: 16px 0px;
+}
+
+.select-box select, .select-box option {
+    color: #282E38;
+    display: block;
+    outline: none;
+    width: 100%;
+    border: 1px solid #282E38;
+    border-radius: 8px;
+    background-color: #0F1419;
+    padding: 13px 6px;
+    font-size: 14px;
+    color: #fff; 
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; 
+    box-sizing: border-box;
+}
+
+.fechar {
+    border: transparent;
+    background-color: transparent;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 15px;
+}
+/* input {
+    width: 250px;
+    height: 30px;
+    border-radius: 10px;
+    color: black;
+    font-family: times new 'Times New Roman', Times, serif;
+    outline: none;
+    padding: 10px;
+} */
+
+
+.button-box {
+    margin-top: 20px;
+}

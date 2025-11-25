@@ -51,11 +51,8 @@
                 <div class="button-box">
                     <app-btn tipo="submit" valor="Continuar" link="" (click)="nextStep1()"></app-btn>
                 </div>
-
             </form>
-
             <p>Já tem uma conta? <a routerLink="/login">Fazer login</a></p>
-
         </div>
         }
 
@@ -86,6 +83,17 @@
                     [ngModel]="confirmasenha()"
                     (ngModelChange)="confirmasenha.set($event)"
                     required>
+                </div>
+
+                <div class="select-box">
+                    <label>Tipo de Usuário</label>
+
+                    <select name="tipoUsuario" [ngModel]="tipoUsuario()" required>
+                        <option value="aluno" selected>Aluno</option>
+                        <option value="func">Funcionário</option>
+                        <option value="operador">Operador</option>
+                        <option value="visit">Visitante</option>
+                    </select>
                 </div>
 
                 @if (erroStep2()) {

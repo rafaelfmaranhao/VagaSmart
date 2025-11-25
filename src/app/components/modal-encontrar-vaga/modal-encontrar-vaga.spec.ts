@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BtnInput } from './btn-input';
+import { ModalEncontrarVaga } from './modal-encontrar-vaga';
 
-describe('BtnInput', () => {
-  let component: BtnInput;
-  let fixture: ComponentFixture<BtnInput>;
+describe('ModalEncontrarVaga', () => {
+  let component: ModalEncontrarVaga;
+  let fixture: ComponentFixture<ModalEncontrarVaga>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BtnInput]
+      imports: [ModalEncontrarVaga]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(BtnInput);
+    fixture = TestBed.createComponent(ModalEncontrarVaga);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

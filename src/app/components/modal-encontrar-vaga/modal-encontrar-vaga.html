@@ -1,0 +1,26 @@
+<div class="modals">
+    <h1>Encontrar Vaga</h1>
+    <div class="infos">
+        <form>
+            <div class="select-box">
+                <h2>Selecione o Veículo: </h2>
+                <select name="veiculos">
+                    @for (listarVeiculos of listaVeiculos; track $index) {
+                        <option [value]="listarVeiculos.id">{{ listarVeiculos.model }}</option>
+                    }
+                </select>
+            </div>
+            <div class="select-box">
+                <h2>Tipo de Entrada: </h2>
+                <select name="entrada">
+                    <option value="auto" selected>Automática</option>
+                    <option value="manual">Manual</option>
+                </select>
+            </div>
+            <div class="button-box">
+                <app-btn tipo="submit" valor="Confirmar"></app-btn>
+            </div>
+        </form>
+        <button (click)="close()" class="fechar">Fechar</button>
+    </div>
+</div>

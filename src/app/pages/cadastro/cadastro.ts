@@ -23,6 +23,7 @@ export class Cadastro {
   email = signal('');
   senha = signal('');
   confirmasenha = signal('');
+  tipoUsuario = signal('');
 
   erroStep1 = signal('');
   erroStep2 = signal('');

@@ -1,9 +1,11 @@
+import { ModalEncontrarVaga } from './../../components/modal-encontrar-vaga/modal-encontrar-vaga';
 import { Component, inject } from '@angular/core';
 import { LucideAngularModule } from 'lucide-angular';
-import { Dialog, DialogRef } from '@angular/cdk/dialog';
-import { ModalComponent } from '../../components/modal/modal';
+import { Dialog} from '@angular/cdk/dialog';
 import { Footer } from "../../components/footer/footer";
 import { SaldoRecarga } from '../../components/saldo-recarga/saldo-recarga';
+import { ModalAdicionarVeiculo } from '../../components/modal-adicionar-veiculo/modal-adicionar-veiculo';
+
 
 
 @Component({
@@ -17,29 +19,17 @@ export class Dashboard {
 
   dialog = inject(Dialog);
 
-  openModal() {
-    this.dialog.open(ModalComponent, {
+  openModalVaga() {
+    this.dialog.open(ModalEncontrarVaga, {
       hasBackdrop: true,
       disableClose: true,
-      data: {
-        titulo: 'Adicionar Veiculo',
-        input1: 'Placa do Veiculo',
-        input2: 'Modelo do Veiculo',
-        condicao: 'adicionar'
-      }
     });
   }
 
-  encontrarVaga() {
-    this.dialog.open(ModalComponent, {
+  openModalVeiculo() {
+    this.dialog.open(ModalAdicionarVeiculo, {
       hasBackdrop: true,
       disableClose: true,
-      data: {
-        titulo: 'Encontrar Vaga',
-        input1: '',
-        input2: 'valor do segundo input',
-        condicao: 'encontrar'
-      }
     });
   }
 

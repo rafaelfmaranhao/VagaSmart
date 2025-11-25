@@ -20,14 +20,27 @@ h1 {
     font-weight: bold;
     margin-top: 8px;
 }
-.modelos {
+.input-box {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     gap: 10px;
-    margin-top: 50px;
+    margin-top: 20px;
 }
+
+.input-box input {
+    display: block;
+    outline: none;
+    width: 100%;
+    border: 1px solid #282E38;
+    border-radius: 8px;
+    background-color: #0F1419;
+    padding: 13px 6px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
 .fechar {
     border: transparent;
     background-color: transparent;
@@ -39,7 +52,7 @@ h1 {
     margin-top: 20px;
     font-size: 15px;
 }
-input {
+/* input {
     width: 250px;
     height: 30px;
     border-radius: 10px;
@@ -47,5 +60,9 @@ input {
     font-family: times new 'Times New Roman', Times, serif;
     outline: none;
     padding: 10px;
-}
+} */
 
+
+.button-box {
+    margin-top: 20px;
+}
