@@ -23,7 +23,7 @@
             <lucide-icon name="dollar-sign" class="icone-dolar" color="black" size="38px"></lucide-icon>
         </div>
         <div class="btn-recarga">
-            <button class="recarga"> <lucide-icon name="wallet"></lucide-icon>Recarregar Saldo</button>
+            <button class="recarga" (click)="saldoRecarga()"> <lucide-icon name="wallet"></lucide-icon>Recarregar Saldo</button>
         </div>
     </fieldset>
 </div>
@@ -49,7 +49,7 @@
     <fieldset class="tres" (click)="openModal()">
         <button class="maps"><lucide-icon name="car" class="" size="18px"></lucide-icon>Adicionar carro</button>
     </fieldset>
-    <fieldset class="tres">
+    <fieldset class="tres" (click)="saldoRecarga()">
         <button class="maps"><lucide-icon name="CreditCard" class="" size="18px"></lucide-icon>Recarregar</button>
     </fieldset>
 </div>

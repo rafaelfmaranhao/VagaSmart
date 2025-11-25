@@ -1,8 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { LucideAngularModule } from 'lucide-angular';
-import { Dialog } from '@angular/cdk/dialog';
+import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { ModalComponent } from '../../components/modal/modal';
 import { Footer } from "../../components/footer/footer";
+import { SaldoRecarga } from '../../components/saldo-recarga/saldo-recarga';
 
 
 @Component({
@@ -40,6 +41,18 @@ export class Dashboard {
         condicao: 'encontrar'
       }
     });
+  }
+
+  saldoRecarga(){
+    const DialogRef = this.dialog.open(SaldoRecarga, {
+      data: {
+        titulo: 'Adicionar saldo',
+        input1: 'Qual valor que deseja adicionar ?',
+        condicao: 'adicionar'
+      }
+    });
+
+
   }
 
 }
