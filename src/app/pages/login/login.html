@@ -8,19 +8,22 @@
             <h2>Bem-vindo de volta</h2>
             <p>Acesse sua conta VagaSmart</p>
         </div>
-        <form>
+        <form (ngSubmit)="onLogin()" #loginForm="ngForm">
             <div class="input-box">
                 <label for="email">Email</label>
                 <lucide-icon name="mail" color="#aaa" size="21px"></lucide-icon>
-                <input type="email" name="nomeUsuario" placeholder="seu@email.com" required>
+                <input type="email" name="nomeUsuario" placeholder="seu@email.com" [(ngModel)]="email" required>
             </div>
             <div class="input-box">
                 <label for="senha">Senha</label>
                 <lucide-icon name="lock" color="#aaa" size="21px"></lucide-icon>
-                <input type="password" name="senha" placeholder="••••••••" required>
+                <input type="password" name="senha" placeholder="••••••••" [(ngModel)]="password" required>
             </div>
+            @if (errorMessage) {
+                <p class="error">{{ errorMessage }}</p>
+            }
             <div class="button-box">
-                <app-btn tipo="submit" valor="Entrar" routerLink="/dashboard"></app-btn>
+                <app-btn tipo="submit" valor="Entrar"></app-btn>
             </div>
         </form>
         <p>Não tem uma conta? <a routerLink="/cadastro">Criar conta</a></p>

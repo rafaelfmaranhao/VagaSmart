@@ -36,7 +36,7 @@ h3 {
 p {
     color: #aaa;
     font-size: 13px;
-    margin: 0; 
+    margin: 5px; 
 }
 
 .container {
@@ -159,6 +159,7 @@ p {
     flex-direction: column;
     width: 100%;
     gap: 7px;
+    margin-bottom: 10px;
 }
 
 .select-box select, .select-box option {
@@ -179,11 +180,10 @@ p {
 .button-box {
     width: 100%;
     max-width: 380px;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 #cadastro-button-box {
-
     gap: 15px;
     width: 100%;
     margin-top: 10px;
@@ -193,8 +193,6 @@ p {
 .error {
     color: #ff5c5c;
     font-size: 13px;
-    margin-top: -12px;
-    margin-bottom: 8px;
     width: 100%;
     text-align: left;
 }

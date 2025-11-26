@@ -1,14 +1,14 @@
 <div class="modals">
     <h1>Adicionar Veículo</h1>
     <div class="infos">
-        <form>
+        <form (ngSubmit)="onCadastrar()" #adicionarVeiculoForm="ngForm">
             <div class="input-box">
                 <p>Placa do Veículo</p>
-                <input type="text" class="input" placeholder="placa">
+                <input type="text" class="input" placeholder="placa" [(ngModel)]="placa" name="placa">
             </div>
             <div class="input-box">
                 <p>Modelo do Veículo</p>
-                <input type="text" class="input" placeholder="modelo">
+                <input type="text" class="input" placeholder="modelo" [(ngModel)]="modelo" name="modelo">
             </div>
             <div class="button-box">
                 <app-btn tipo="submit" valor="Confirmar"></app-btn>

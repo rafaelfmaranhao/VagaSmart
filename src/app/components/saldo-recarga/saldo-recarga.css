@@ -29,6 +29,12 @@ h1 {
     gap: 10px;
     margin-top: 50px;
 }
+
+p {
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
 .fechar {
     border: transparent;
     background-color: transparent;
@@ -41,11 +47,37 @@ h1 {
     font-size: 15px;
 }
 input {
-    width: 250px;
-    height: 30px;
-    border-radius: 10px;
-    color: black;
+    display: block;
+    width: 100%;
+    border-radius: 8px;
+    background-color: #0F1419;
+    padding: 13px 6px;
+    font-size: 14px;
     font-family: times new 'Times New Roman', Times, serif;
     outline: none;
-    padding: 10px;
+}
+
+.select-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-width: 240px;
+    gap: 6px;
+    margin: 16px 0px;
+}
+
+.select-box select, .select-box option {
+    color: #282E38;
+    display: block;
+    outline: none;
+    width: 100%;
+    border: 1px solid #282E38;
+    border-radius: 8px;
+    background-color: #0F1419;
+    padding: 13px 6px;
+    font-size: 14px;
+    color: #fff; 
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; 
+    box-sizing: border-box;
 }
