@@ -1,9 +1,9 @@
-import { Component, Input, signal } from '@angular/core';
+import { Component, inject, Input, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { LucideAngularModule } from "lucide-angular";
-import { BtnInput } from "../../components/btn-input/btn-input";
-
+import { LucideAngularModule } from 'lucide-angular';
+import { BtnInput } from '../../components/btn-input/btn-input';
+import { RegisterService } from '../../services/register.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -12,8 +12,6 @@ import { BtnInput } from "../../components/btn-input/btn-input";
   templateUrl: './cadastro.html',
   styleUrl: './cadastro.css',
 })
-
-
 export class Cadastro {
   @Input() link = '';
 
@@ -29,56 +27,72 @@ export class Cadastro {
   erroStep2 = signal('');
   erroStep3 = signal('');
 
+  private registerService = inject(RegisterService);
 
   nextStep1() {
     this.erroStep1.set('');
 
-    if (!this.name() && !this.email()) {
-      this.erroStep1.set("Preencha todos os campos!");
+    if (!this.name() || !this.email()) {
+      this.erroStep1.set('Preencha todos os campos!');
       return;
     }
 
     this.step.set(2);
   }
 
-
   nextStep2() {
     this.erroStep2.set('');
 
     if (this.senha().length < 8) {
-      this.erroStep2.set("A senha precisa ter pelo menos 8 caracteres.");
+      this.erroStep2.set('A senha precisa ter pelo menos 8 caracteres.');
       return;
     }
 
     if (this.senha() !== this.confirmasenha()) {
-      this.erroStep2.set("As senhas não coincidem!");
+      this.erroStep2.set('As senhas não coincidem!');
       return;
+    }
+
+    if (!this.tipoUsuario) {
+      this.erroStep2.set('Selecione um Tipo de Usuário.')
     }
 
     this.step.set(3);
   }
 
-
   back() {
-    this.step.update(s => s - 1);
+    this.step.update((s) => s - 1);
   }
-
 
   finish() {
     this.erroStep3.set('');
 
-
     const dados = {
       name: this.name(),
-      email: this.email()
+      email: this.email(),
+      password: this.senha(),
+      type: this.tipoUsuario().toUpperCase(),
     };
-
-    localStorage.setItem('cadastro', JSON.stringify(dados));
 
     this.step.set(1);
     this.name.set('');
     this.email.set('');
     this.senha.set('');
     this.confirmasenha.set('');
+
+    this.registerService.registerUser(dados).subscribe({
+      next: (response) => {
+        this.step.set(1);
+        this.name.set('');
+        this.email.set('');
+        this.senha.set('');
+        this.confirmasenha.set('');
+        this.tipoUsuario.set('');
+      },
+      error: (err) => {
+        console.error('Erro ao registrar:', err);
+        this.erroStep3.set('Erro ao registrar. Tente novamente mais tarde.');
+      },
+    });
   }
 }

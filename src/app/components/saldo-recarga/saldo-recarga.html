@@ -3,7 +3,6 @@
     <h1>{{ titulo }}</h1>
     <div class="infos">
         <form>
-        @if (condicao == 'adicionar') {
             <p>{{ input1 }}</p>
             <input 
             type="number"
@@ -11,13 +10,14 @@
             placeholder="Digite o valor da recarga"
             [(ngModel)]="valor"
             name="valor">
-        }
-        @else if (condicao == 'pagamento') {
-            <select name="veiculos">
-                <option value="tipoPagamento">Crédito</option>
-                <option value="tipoPagamento">Débito</option>
-            </select>
-        }
+
+            <div class="select-box">
+                <select [(ngModel)]="tipoPagamento" name="tipoPagamento">
+                    <option value="credito">Crédito</option>
+                    <option value="debito">Débito</option>
+                </select>
+            </div>
+
             <div class="button-box">
                 <app-btn tipo="submit" valor="Recarregar" (click)="confirmar()"></app-btn>
             </div>

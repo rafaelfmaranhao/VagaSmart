@@ -8,22 +8,21 @@ import { BtnInput } from "../btn-input/btn-input";
   standalone: true,
   templateUrl: './saldo-recarga.html',
   styleUrl: './saldo-recarga.css',
-  imports: [FormsModule, BtnInput],
+  imports: [FormsModule, BtnInput]
 })
 export class SaldoRecarga {
-  @Input() titulo = '';
-  @Input() input1 = '';
-  @Input() input2 = '';
-  @Input() condicao = '';
+  titulo = '';
+  input1 = '';
+  input2 = '';
+  condicao = '';
 
-  valor: number | null = 0;
-  tipoPagamento: string = 'Crédito';
+  @Input() valor: number | null = 0;
+  @Input() tipoPagamento: string = '';
 
   constructor(
     public dialogRef: DialogRef,
     @Inject(DIALOG_DATA) public data: any
   ) {
-    
     if (data) {
       this.titulo = data.titulo;
       this.input1 = data.input1;
@@ -33,18 +32,19 @@ export class SaldoRecarga {
   }
 
   confirmar(){
-    if (this.condicao === 'adicionar'){
-      if (!this.valor || this.valor<=0){
+    console.log(this.tipoPagamento);
+    if (this.condicao == 'adicionar'){
+      if (!this.valor || this.valor <= 0){
         alert('Digite um valor válido!')
         return;
       }
 
-      this.dialogRef.close ({
+      this.dialogRef.close({
         tipo: 'adicionar',
         valor: this.valor
       });
     }
-    if(this.condicao === 'pagamento'){
+    if(this.condicao == 'pagamento'){
       this.dialogRef.close({
         tipo: 'pagamento',
         metodo: this.tipoPagamento

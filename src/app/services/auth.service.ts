@@ -1,22 +1,18 @@
-import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { HttpInterceptorFn } from '@angular/common/http';
+import { inject } from '@angular/core';
+import { LoginService } from './login.service';
 
-@Injectable({
-  providedIn: 'root',
-})
-export class AuthService {
-  constructor(private router: Router) {}
+export const AuthInterceptor: HttpInterceptorFn = (req, next) => {
+  const loginService = inject(LoginService);
+  const token = loginService.getToken();
 
-  cadastrar(usuario: { email: string, senha: string }) {
-    const emails = JSON.parse(localStorage.getItem('email') || '[]');
-    const emailExist = emails.find((u: any) => u.usuario === usuario.email);
-
-    if (emailExist) return { success: true, message: 'Email já cadastrado!'};
-
-    emails.push(usuario);
-    localStorage.setItem('emails', JSON.stringify(emails));
-    return { success: true, message: 'Cadastro realizado com sucesso'}
+  if (token) {
+    req = req.clone({
+      setHeaders: {
+        Authorization: `Bearer ${token}`
+      }
+    });
   }
 
-  login() {}
-}
+  return next(req);
+};

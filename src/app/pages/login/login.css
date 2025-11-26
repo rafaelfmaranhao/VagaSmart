@@ -98,3 +98,8 @@ p {
     left: 8px;
     top: 41px;
 }
+
+.error {
+    color: #ff5c5c;
+    text-align: center;
+}

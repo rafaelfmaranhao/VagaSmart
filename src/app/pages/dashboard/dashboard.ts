@@ -5,21 +5,36 @@ import { Dialog } from '@angular/cdk/dialog';
 import { Footer } from "../../components/footer/footer";
 import { SaldoRecarga } from '../../components/saldo-recarga/saldo-recarga';
 import { ModalAdicionarVeiculo } from '../../components/modal-adicionar-veiculo/modal-adicionar-veiculo';
+import { DashboardService } from '../../services/dashboard.service';
 
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [LucideAngularModule, Footer],
+  imports: [LucideAngularModule, Footer, SaldoRecarga],
   templateUrl: './dashboard.html',
   styleUrls: ['./dashboard.css'],
 })
 export class Dashboard {
   valor = 0;
 
+  private dashboardService = inject(DashboardService);
   dialog = inject(Dialog);
 
-  constructor(private saldo: SaldoRecarga) {}
+  ngOnInit() {
+    this.loadDashboard()
+  }
+
+  loadDashboard() {
+    this.dashboardService.loadDashboard().subscribe({
+      next: (response) => {
+        this.valor = response.wallet.props.balance;
+      },
+      error: (err) => {
+        console.error('Erro ao carregar dashboard', err);
+      }
+    });
+  }
 
   openModalVaga() {
     this.dialog.open(ModalEncontrarVaga, {
