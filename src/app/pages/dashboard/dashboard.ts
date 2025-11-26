@@ -2,37 +2,38 @@ import { ModalEncontrarVaga } from './../../components/modal-encontrar-vaga/moda
 import { Component, inject, Input } from '@angular/core';
 import { LucideAngularModule } from 'lucide-angular';
 import { Dialog } from '@angular/cdk/dialog';
-import { Footer } from "../../components/footer/footer";
+import { Footer } from '../../components/footer/footer';
 import { SaldoRecarga } from '../../components/saldo-recarga/saldo-recarga';
 import { ModalAdicionarVeiculo } from '../../components/modal-adicionar-veiculo/modal-adicionar-veiculo';
 import { DashboardService } from '../../services/dashboard.service';
 
-
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [LucideAngularModule, Footer, SaldoRecarga],
+  imports: [LucideAngularModule, Footer,],
   templateUrl: './dashboard.html',
   styleUrls: ['./dashboard.css'],
 })
 export class Dashboard {
   valor = 0;
+  walletId = ''
 
   private dashboardService = inject(DashboardService);
   dialog = inject(Dialog);
 
   ngOnInit() {
-    this.loadDashboard()
+    this.loadDashboard();
   }
 
   loadDashboard() {
     this.dashboardService.loadDashboard().subscribe({
       next: (response) => {
         this.valor = response.wallet.props.balance;
+        this.walletId = response.wallet.props._id;
       },
       error: (err) => {
         console.error('Erro ao carregar dashboard', err);
-      }
+      },
     });
   }
 
@@ -50,14 +51,16 @@ export class Dashboard {
     });
   }
 
-  saldoRecarga(){
-    const DialogRef = this.dialog.open(SaldoRecarga, {
+  saldoRecarga() {
+    const dialogRef = this.dialog.open(SaldoRecarga, {
+      hasBackdrop: true,
+      disableClose: true,
       data: {
-        titulo: 'Adicionar saldo',
-        input1: 'Qual valor que deseja adicionar ?',
-        condicao: 'adicionar'
-      }
+        walletId: this.walletId,
+      },
+    });
+    dialogRef.closed.subscribe(() => {
+      this.loadDashboard();
     });
   }
-
 }

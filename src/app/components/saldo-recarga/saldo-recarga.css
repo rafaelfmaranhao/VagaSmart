@@ -29,6 +29,12 @@ h1 {
     gap: 10px;
     margin-top: 50px;
 }
+
+p {
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
 .fechar {
     border: transparent;
     background-color: transparent;

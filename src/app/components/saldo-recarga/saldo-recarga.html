@@ -1,9 +1,9 @@
 <div class="modals">
     <div inputs></div>
-    <h1>{{ titulo }}</h1>
+    <h1>Faça sua recarga</h1>
     <div class="infos">
-        <form>
-            <p>{{ input1 }}</p>
+        <form (ngSubmit)="onSubmit()" #recargaForm="ngForm">
+            <p>Digite o valor da sua recarga</p>
             <input 
             type="number"
             class="input"
@@ -19,7 +19,7 @@
             </div>
 
             <div class="button-box">
-                <app-btn tipo="submit" valor="Recarregar" (click)="confirmar()"></app-btn>
+                <app-btn tipo="submit" valor="Recarregar"></app-btn>
             </div>
         </form>
         <button (click)="close()" class="fechar">Fechar</button>
