@@ -1,20 +1,20 @@
 <div class="modals">
     <h1>Encontrar Vaga</h1>
     <div class="infos">
-        <form>
+        <form (ngSubmit)="onSubmit()" #gateEventForm="ngForm">
             <div class="select-box">
                 <h2>Selecione o Veículo: </h2>
-                <select name="veiculos">
+                <select name="veiculos" [(ngModel)]="selectedVehicleId" required>
                     @for (listarVeiculos of listaVeiculos; track $index) {
-                        <option [value]="listarVeiculos.id">{{ listarVeiculos.model }}</option>
+                        <option [value]="listarVeiculos._id">{{ listarVeiculos.model }}</option>
                     }
                 </select>
             </div>
             <div class="select-box">
                 <h2>Tipo de Entrada: </h2>
-                <select name="entrada">
-                    <option value="auto" selected>Automática</option>
-                    <option value="manual">Manual</option>
+                <select name="entrada" [(ngModel)]="selectedType" required>
+                    <option value="AUTO">Automática</option>
+                    <option value="MANUAL">Manual</option>
                 </select>
             </div>
             <div class="button-box">
