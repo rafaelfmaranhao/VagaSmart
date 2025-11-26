@@ -16,6 +16,7 @@ export class Login {
   email = '';
   password = '';
   errorMessage = '';
+  isLoading = true;
 
   private loginService = inject(LoginService);
   private router = inject(Router);
@@ -29,6 +30,7 @@ export class Login {
 
     this.loginService.login(credentials).subscribe({
       next: (response) => {
+        this.isLoading = false
         const token = response.token; 
         const tipoUsuario = response.type;
         this.loginService.setToken(token);
