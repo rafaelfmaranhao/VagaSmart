@@ -1,5 +1,5 @@
 export interface Veiculo {
-    id: number;
+    _id: string;
     plate: string;
     model: string;
     userId: any;

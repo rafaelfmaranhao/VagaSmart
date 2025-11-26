@@ -22,13 +22,20 @@
             <h3>Horario:</h3>
             <p>{{ horario }}</p>
         </div>
+        <div class="info">
+            <h3>Razão:</h3>
+            <input type="text" 
+  [(ngModel)]="razao" 
+  name="razao"
+  placeholder="Digite a razão...">
+        </div>
     </div>
-    <div class="button-box">
-        <button type="submit" class="liberar">
+    <form class="button-box" (ngSubmit)="onSubmit($event)" #cardForm="ngForm">
+        <button type="submit" class="liberar" name="action" value="liberar">
             <lucide-icon name="CircleCheck"></lucide-icon> Liberar
         </button>
-        <button type="submit" class="recusar">
+        <button type="submit" class="recusar" name="action" value="recusar">
             <lucide-icon name="CircleX"></lucide-icon> Recusar
         </button>
-    </div>
+    </form>
 </div>

@@ -60,10 +60,13 @@ export class Dashboard {
   }
 
   openModalVeiculo() {
-    this.dialog.open(ModalAdicionarVeiculo, {
+    const dialogRef = this.dialog.open(ModalAdicionarVeiculo, {
       hasBackdrop: true,
       disableClose: true,
     });
+    dialogRef.closed.subscribe(() => {
+      this.loadDashboard();
+    })
   }
 
   saldoRecarga() {
