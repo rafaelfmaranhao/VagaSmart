@@ -31,6 +31,11 @@
 
 <div class="estacionamento">
     <fieldset class="pontilhamento">
+        @if (gateEvent) {
+            @for (ge of gateEvent; track $index) {
+                
+            }
+        }
         <lucide-icon name="Car" class="carro" size="38px"></lucide-icon>
         <p class="branco">Nenhum estacionamento ativo</p>
         <p class="cinza">Encontre uma vaga disponivel no mapa</p>

@@ -6,6 +6,7 @@ import { Footer } from '../../components/footer/footer';
 import { SaldoRecarga } from '../../components/saldo-recarga/saldo-recarga';
 import { ModalAdicionarVeiculo } from '../../components/modal-adicionar-veiculo/modal-adicionar-veiculo';
 import { DashboardService } from '../../services/dashboard.service';
+import { GateEvent } from '../../models/gateEvent';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,6 +21,20 @@ export class Dashboard {
 
   private dashboardService = inject(DashboardService);
   dialog = inject(Dialog);
+
+  gateEvent: GateEvent[] = [
+    {
+      _id: "",
+      userId: "",
+      vehicleId: "",
+      type: "",
+      timestamp: 0,
+      authorized: true,
+      operatorId: "",
+      reason: "",
+      active: true
+    }
+  ]
 
   ngOnInit() {
     this.loadDashboard();
