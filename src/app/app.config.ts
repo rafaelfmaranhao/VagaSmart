@@ -20,7 +20,8 @@ import {
   Shield,
   Clock,
   CircleCheck,
-  CircleX
+  CircleX,
+  LogOut
 } from 'lucide-angular';
 import { routes } from './app.routes';
 
@@ -48,7 +49,8 @@ export const appConfig: ApplicationConfig = {
         Shield,
         Clock,
         CircleCheck,
-        CircleX
+        CircleX,
+        LogOut
       })
     ),
   ],

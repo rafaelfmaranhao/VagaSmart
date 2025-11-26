@@ -7,15 +7,17 @@ import { SaldoRecarga } from '../../components/saldo-recarga/saldo-recarga';
 import { ModalAdicionarVeiculo } from '../../components/modal-adicionar-veiculo/modal-adicionar-veiculo';
 import { DashboardService } from '../../services/dashboard.service';
 import { GateEvent } from '../../models/gateEvent';
-import { Card } from "../../components/card/card";
-import { CardDashboard } from "../../components/card-dashboard/card-dashboard";
+import { Card } from '../../components/card/card';
+import { CardDashboard } from '../../components/card-dashboard/card-dashboard';
 import { getVehiclesService } from '../../services/getVehicles.service';
 import { Veiculo } from '../../models/veiculo';
+import { UpdateGateEventService } from '../../services/updateGateEvent.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [LucideAngularModule, Footer, CardDashboard],
+  imports: [LucideAngularModule, Footer, CardDashboard, RouterLink],
   templateUrl: './dashboard.html',
   styleUrls: ['./dashboard.css'],
 })
@@ -32,31 +34,10 @@ export class Dashboard {
 
   private dashboardService = inject(DashboardService);
   private vehiclesService = inject(getVehiclesService);
+  private updateGateEvent = inject(UpdateGateEventService)
   dialog = inject(Dialog);
 
   gateEvent: GateEvent[] = [
-    {
-      _id: "",
-      userId: "",
-      vehicleId: "",
-      type: "",
-      timestamp: 0,
-      authorized: true,
-      operatorId: "",
-      reason: "",
-      active: true
-    },
-    {
-      _id: "",
-      userId: "",
-      vehicleId: "",
-      type: "",
-      timestamp: 0,
-      authorized: false,
-      operatorId: "",
-      reason: "",
-      active: false
-    }
   ];
 
   ngOnInit() {
@@ -69,10 +50,42 @@ export class Dashboard {
       next: (response) => {
         this.valor = response.wallet.props.balance;
         this.walletId = response.wallet.props._id;
+        this.gateEvent = response.gateEvent.map((item:any) => {
+          const date = new Date(item.gateEvent.props.timestamp);
+
+          const horario = date.toLocaleTimeString('pt-BR', {
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: true,
+          });
+
+          return{
+            _id: item.gateEvent.props._id,
+            plate: item.vehicle.props.plate,
+            name: response.user.props.name,
+            timestamp: horario,
+          }
+
+        });
       },
       error: (err) => {
         console.error('Erro ao carregar dashboard', err);
-      }
+      },
+    });
+  }
+
+  finalizarEstacionamento(dados: string) {
+    const payload = {
+      id: dados,
+      active: false
+    };
+    this.updateGateEvent.updateGateEvent(payload).subscribe({
+      next: () => {
+        this.loadDashboard();
+      },
+      error: (err) => {
+        console.error('Erro acionar a entrada', err);
+      },
     });
   }
 
@@ -83,14 +96,17 @@ export class Dashboard {
       },
       error: (err) => {
         console.error('Erro ao carregar veículos', err);
-      }
+      },
     });
   }
 
   openModalVaga() {
-    this.dialog.open(ModalEncontrarVaga, {
+    const dialogRef = this.dialog.open(ModalEncontrarVaga, {
       hasBackdrop: true,
       disableClose: true,
+    });
+    dialogRef.closed.subscribe(() => {
+      this.loadDashboard();
     });
   }
 
@@ -101,7 +117,7 @@ export class Dashboard {
     });
     dialogRef.closed.subscribe(() => {
       this.loadDashboard();
-    })
+    });
   }
 
   saldoRecarga() {

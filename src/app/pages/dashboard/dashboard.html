@@ -9,8 +9,7 @@
         </div>
     </div>
     <div class="icones">
-        <lucide-icon name="Bell" size="18px" class="efeito"></lucide-icon>
-        <lucide-icon name="Menu" size="18px" class="efeito"></lucide-icon>
+        <lucide-icon name="LogOut" size="18px" class="efeito" routerLink="/"></lucide-icon>
     </div>
 </div>
 
@@ -31,15 +30,18 @@
 
 <div class="estacionamento">
     <fieldset class="pontilhamento">
-        <h2 style="color: #aaa; margin-bottom: 12px;">Estacionamentos ativos</h2>
         <div class="cards">
-            @if (gateEvent) {
+            @if (gateEvent.length > 0) {
+                <h2 style="color: #aaa; margin-bottom: 12px;">Estacionamentos ativos</h2>
                 @for (ge of gateEvent; track $index) {
-                    <app-card-dashboard [id]="ge._id"
+                <app-card-dashboard 
+                    [id]="ge._id"
                     titulo="Estacionamento"
-                    [placa]="ge.vehicleId"
-                    [condutor]="ge.operatorId"
-                    [horario]="ge.timestamp.toString()"></app-card-dashboard>
+                    [placa]="ge.plate"
+                    [condutor]="ge.name"
+                    [horario]="ge.timestamp.toString()"
+                    (submitEvent)="finalizarEstacionamento($event)">
+                </app-card-dashboard>
                 }
             } @else {
                 <lucide-icon name="Car" class="carro" size="38px"></lucide-icon>
@@ -50,24 +52,6 @@
                         <lucide-icon name="map-pin" class="" size="18px"></lucide-icon> Buscar vaga
                     </button>
                 </div>
-            }
-        </div>
-    </fieldset>
-</div>
-
-<div class="veiculos">
-    <fieldset class="pontilhamento">
-        <h2 style="color: #aaa;">Meus Veículos</h2>
-        <div class="cards">
-            @if (vehicles && vehicles.length > 0) {
-                @for (veiculo of vehicles; track $index) {
-                    <div class="card-veiculo">
-                        <p><b>Modelo:</b> {{ veiculo.model }}</p>
-                        <p><b>Placa:</b> {{ veiculo.plate }}</p>
-                    </div>
-                }
-            } @else {
-                <p>Nenhum veículo cadastrado.</p>
             }
         </div>
     </fieldset>

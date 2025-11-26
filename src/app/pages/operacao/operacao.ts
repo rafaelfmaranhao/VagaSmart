@@ -31,14 +31,7 @@ export class Operacao {
   private updateUnathorizedGateEventService = inject(UpdateUnathorizedGateEventService);
 
   cards: cardsInfo[] = [
-    {
-      id: '100',
-      nome: 'Macaco',
-      status: 'Ativo',
-      placa: 'HSH-3030',
-      condutor: 'João da Silva',
-      horario: '10:00',
-    }
+
   ];
 
   quantidadeSolicitacoes = this.cards.length;

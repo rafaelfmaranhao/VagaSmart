@@ -3,14 +3,16 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root', 
+  providedIn: 'root',
 })
-export class GetGateEventsService {
+export class UpdateGateEventService {
   private apiUrl = 'http://localhost:3001/gateEvent';
 
   constructor(private http: HttpClient) {}
 
-  loadGateEvents(): Observable<any> {
-    return this.http.get(this.apiUrl);
+  updateGateEvent(payload: {
+    id:string;
+  }): Observable<any> {
+    return this.http.put(this.apiUrl, payload);
   }
 }
