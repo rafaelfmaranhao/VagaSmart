@@ -31,17 +31,44 @@
 
 <div class="estacionamento">
     <fieldset class="pontilhamento">
-        @if (gateEvent) {
-            @for (ge of gateEvent; track $index) {
-                
+        <h2 style="color: #aaa; margin-bottom: 12px;">Estacionamentos ativos</h2>
+        <div class="cards">
+            @if (gateEvent) {
+                @for (ge of gateEvent; track $index) {
+                    <app-card-dashboard [id]="ge._id"
+                    titulo="Estacionamento"
+                    [placa]="ge.vehicleId"
+                    [condutor]="ge.operatorId"
+                    [horario]="ge.timestamp.toString()"></app-card-dashboard>
+                }
+            } @else {
+                <lucide-icon name="Car" class="carro" size="38px"></lucide-icon>
+                <p class="branco">Nenhum estacionamento ativo</p>
+                <p class="cinza">Encontre uma vaga disponivel no mapa</p>
+                <div class="mapa">
+                    <button class="botao-mapa" (click)="openModalVaga()">
+                        <lucide-icon name="map-pin" class="" size="18px"></lucide-icon> Buscar vaga
+                    </button>
+                </div>
             }
-        }
-        <lucide-icon name="Car" class="carro" size="38px"></lucide-icon>
-        <p class="branco">Nenhum estacionamento ativo</p>
-        <p class="cinza">Encontre uma vaga disponivel no mapa</p>
-        <div class="mapa">
-            <button class="botao-mapa"> <lucide-icon name="map-pin" class="" size="18px"></lucide-icon> Buscar vaga
-            </button>
+        </div>
+    </fieldset>
+</div>
+
+<div class="veiculos">
+    <fieldset class="pontilhamento">
+        <h2 style="color: #aaa;">Meus Veículos</h2>
+        <div class="cards">
+            @if (vehicles && vehicles.length > 0) {
+                @for (veiculo of vehicles; track $index) {
+                    <div class="card-veiculo">
+                        <p><b>Modelo:</b> {{ veiculo.model }}</p>
+                        <p><b>Placa:</b> {{ veiculo.plate }}</p>
+                    </div>
+                }
+            } @else {
+                <p>Nenhum veículo cadastrado.</p>
+            }
         </div>
     </fieldset>
 </div>

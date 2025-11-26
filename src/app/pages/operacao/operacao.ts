@@ -30,7 +30,16 @@ export class Operacao {
   private getUnathorizedGateEventsService = inject(GetUnathorizedGateEventsService);
   private updateUnathorizedGateEventService = inject(UpdateUnathorizedGateEventService);
 
-  cards: cardsInfo[] = [];
+  cards: cardsInfo[] = [
+    {
+      id: '100',
+      nome: 'Macaco',
+      status: 'Ativo',
+      placa: 'HSH-3030',
+      condutor: 'João da Silva',
+      horario: '10:00',
+    }
+  ];
 
   quantidadeSolicitacoes = this.cards.length;
   ngOnInit() {

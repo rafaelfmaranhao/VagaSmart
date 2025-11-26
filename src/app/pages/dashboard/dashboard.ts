@@ -7,19 +7,31 @@ import { SaldoRecarga } from '../../components/saldo-recarga/saldo-recarga';
 import { ModalAdicionarVeiculo } from '../../components/modal-adicionar-veiculo/modal-adicionar-veiculo';
 import { DashboardService } from '../../services/dashboard.service';
 import { GateEvent } from '../../models/gateEvent';
+import { Card } from "../../components/card/card";
+import { CardDashboard } from "../../components/card-dashboard/card-dashboard";
+import { getVehiclesService } from '../../services/getVehicles.service';
+import { Veiculo } from '../../models/veiculo';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [LucideAngularModule, Footer,],
+  imports: [LucideAngularModule, Footer, CardDashboard],
   templateUrl: './dashboard.html',
   styleUrls: ['./dashboard.css'],
 })
 export class Dashboard {
+  @Input() titulo = '';
+  @Input() status = '';
+  @Input() placa = '';
+  @Input() condutor = '';
+  @Input() horario = '';
+  @Input() id = '';
   valor = 0;
-  walletId = ''
+  walletId = '';
+  vehicles: Veiculo[] = [];
 
   private dashboardService = inject(DashboardService);
+  private vehiclesService = inject(getVehiclesService);
   dialog = inject(Dialog);
 
   gateEvent: GateEvent[] = [
@@ -33,11 +45,23 @@ export class Dashboard {
       operatorId: "",
       reason: "",
       active: true
+    },
+    {
+      _id: "",
+      userId: "",
+      vehicleId: "",
+      type: "",
+      timestamp: 0,
+      authorized: false,
+      operatorId: "",
+      reason: "",
+      active: false
     }
-  ]
+  ];
 
   ngOnInit() {
     this.loadDashboard();
+    this.loadVehicles();
   }
 
   loadDashboard() {
@@ -48,7 +72,18 @@ export class Dashboard {
       },
       error: (err) => {
         console.error('Erro ao carregar dashboard', err);
+      }
+    });
+  }
+
+  loadVehicles() {
+    this.vehiclesService.loadVehicles().subscribe({
+      next: (response) => {
+        this.vehicles = response;
       },
+      error: (err) => {
+        console.error('Erro ao carregar veículos', err);
+      }
     });
   }
 

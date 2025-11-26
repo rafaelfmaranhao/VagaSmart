@@ -2,13 +2,6 @@
     <div class="title">
         <h2>{{ titulo }}</h2>
     </div>
-    <div class="status">
-        @if (status == 'Ativo') {
-            <div class="ativo"><lucide-icon name="clock" color="#4CAF50" size="18px"></lucide-icon> {{ status }}</div>
-        } @else if (status == 'Pendente') {
-            <div class="pendente"><lucide-icon name="clock" color="rgb(245, 241, 5)" size="18px"></lucide-icon> {{ status }}</div>
-        }
-    </div>
     <div class="infos">
         <div class="info">
             <h3>Placa:</h3>
@@ -22,20 +15,13 @@
             <h3>Horario:</h3>
             <p>{{ horario }}</p>
         </div>
-        <div class="info">
-            <h3>Razão:</h3>
-            <input type="text" 
-            [(ngModel)]="razao" 
-            name="razao"
-            placeholder="Digite a razão...">
-        </div>
     </div>
-    <form class="button-box" (ngSubmit)="onSubmit($event)" #cardForm="ngForm">
+    <!-- <form class="button-box" (ngSubmit)="onSubmit($event)" #cardForm="ngForm">
         <button type="submit" class="liberar" name="action" value="liberar">
             <lucide-icon name="CircleCheck"></lucide-icon> Liberar
         </button>
         <button type="submit" class="recusar" name="action" value="recusar">
             <lucide-icon name="CircleX"></lucide-icon> Recusar
         </button>
-    </form>
+    </form> -->
 </div>
