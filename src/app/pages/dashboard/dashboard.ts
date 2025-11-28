@@ -13,11 +13,12 @@ import { getVehiclesService } from '../../services/getVehicles.service';
 import { Veiculo } from '../../models/veiculo';
 import { UpdateGateEventService } from '../../services/updateGateEvent.service';
 import { RouterLink } from '@angular/router';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [LucideAngularModule, Footer, CardDashboard, RouterLink],
+  imports: [LucideAngularModule, Footer, CardDashboard, RouterLink, CurrencyPipe],
   templateUrl: './dashboard.html',
   styleUrls: ['./dashboard.css'],
 })
@@ -42,7 +43,6 @@ export class Dashboard {
 
   ngOnInit() {
     this.loadDashboard();
-    this.loadVehicles();
   }
 
   loadDashboard() {

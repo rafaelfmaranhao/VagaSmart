@@ -18,7 +18,7 @@
     <fieldset class="normal">
         <p class="disponivel">Saldo disponivel:</p>
         <div class="valor">
-            <h2>R$ {{ valor }}</h2>
+            <h2>{{ valor | currency:'BRL'}}</h2>
             <lucide-icon name="dollar-sign" class="icone-dolar" color="black" size="38px"></lucide-icon>
         </div>
         <div class="btn-recarga">
