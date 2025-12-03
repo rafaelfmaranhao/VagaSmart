@@ -3,4 +3,5 @@ export interface GateEvent {
     name: string;
     timestamp: string;
     plate: string;
+    model: string;
 }

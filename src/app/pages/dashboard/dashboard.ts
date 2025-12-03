@@ -60,6 +60,7 @@ export class Dashboard {
 
           return{
             _id: item.gateEvent.props._id,
+            model: item.vehicle.props.model,
             plate: item.vehicle.props.plate,
             name: response.user.props.name,
             timestamp: horario,

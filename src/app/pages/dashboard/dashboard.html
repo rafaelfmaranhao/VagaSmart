@@ -36,7 +36,7 @@
                 @for (ge of gateEvent; track $index) {
                 <app-card-dashboard 
                     [id]="ge._id"
-                    titulo="Estacionamento"
+                    [titulo]="ge.model"
                     [placa]="ge.plate"
                     [condutor]="ge.name"
                     [horario]="ge.timestamp.toString()"
