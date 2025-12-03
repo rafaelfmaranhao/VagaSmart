@@ -19,11 +19,6 @@
                 <lucide-icon name="lock" color="#aaa" size="21px"></lucide-icon>
                 <input type="password" name="senha" placeholder="••••••••" [(ngModel)]="password" required>
             </div>
-            @if (isLoading) {
-                <div class="dots">
-                    <span></span><span></span><span></span>
-                </div>
-            }
             @if (errorMessage) {
                 <p class="error">{{ errorMessage }}</p>
             }
