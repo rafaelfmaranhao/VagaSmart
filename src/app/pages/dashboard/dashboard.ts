@@ -38,8 +38,7 @@ export class Dashboard {
   private updateGateEvent = inject(UpdateGateEventService)
   dialog = inject(Dialog);
 
-  gateEvent: GateEvent[] = [
-  ];
+  gateEvent: GateEvent[] = [];
 
   ngOnInit() {
     this.loadDashboard();
@@ -56,7 +55,7 @@ export class Dashboard {
           const horario = date.toLocaleTimeString('pt-BR', {
             hour: '2-digit',
             minute: '2-digit',
-            hour12: true,
+            hour12: false,
           });
 
           return{

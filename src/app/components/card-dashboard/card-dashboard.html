@@ -16,7 +16,7 @@
             <p>{{ horario }}</p>
         </div>
     </div>
-    <form class="button-box" (ngSubmit)="submit()" #cardForm="ngForm">
+    <form class="button-box" (ngSubmit)="onSubmit()" #cardForm="ngForm">
         <button type="submit" class="liberar" name="action" value="liberar">
             <lucide-icon name="CircleCheck"></lucide-icon> Finalizar Estacionamento
         </button>

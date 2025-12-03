@@ -4,11 +4,11 @@
         <form (ngSubmit)="onCadastrar()" #adicionarVeiculoForm="ngForm">
             <div class="input-box">
                 <p>Placa do Veículo</p>
-                <input type="text" class="input" placeholder="placa" [(ngModel)]="placa" name="placa">
+                <input type="text" class="input" placeholder="Placa" [(ngModel)]="placa" name="placa">
             </div>
             <div class="input-box">
                 <p>Modelo do Veículo</p>
-                <input type="text" class="input" placeholder="modelo" [(ngModel)]="modelo" name="modelo">
+                <input type="text" class="input" placeholder="Modelo" [(ngModel)]="modelo" name="modelo">
             </div>
             <div class="button-box">
                 <app-btn tipo="submit" valor="Confirmar"></app-btn>

@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { LucideAngularModule } from 'lucide-angular';
+import { UpdateWalletService } from './../../services/updateWallet.service';
 
 @Component({
   selector: 'app-card-dashboard',
@@ -16,9 +17,11 @@ export class CardDashboard {
   @Input() horario = '';
   @Input() id = '';
 
+  private updateWalletService = inject(UpdateWalletService);
+
   @Output() submitEvent = new EventEmitter<string>();
 
-  submit() {
+  onSubmit() {
     this.submitEvent.emit(this.id);
   }
 }
